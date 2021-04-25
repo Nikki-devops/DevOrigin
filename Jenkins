@@ -14,7 +14,7 @@ node('master') {
  stage('Global'){
            echo inputA
            echo inputB
-     sh './t2.sh' inputA  inputB
+     sh 'bash ./t2.sh' inputA  inputB
  }
   
 }
