@@ -1,4 +1,3 @@
-
 num1=$1
 echo " Received input " $num1
 num2=$2
