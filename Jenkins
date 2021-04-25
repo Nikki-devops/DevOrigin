@@ -1,13 +1,47 @@
-pipeline {
-  agent any
-   triggers {
-    cron('H */15 * * *')
-  }
-  stages {
-    stage('Stage 1') {
-      steps {
-        echo 'Hello world!'
-      }
+package jenkins
+import java.text.SimpleDateFormat
+def inputA = ''
+def inputB = ''
+
+node('master') {
+    stage('Hello World') {
+              echo 'Hello World'
+     inputA=valueA()
+     echo inputA
+     inputB=valueB()
+     echo inputB
+        }
+ stage('Global'){
+           echo inputA
+           echo inputB
+     bash t2.sh inputA inputB
+ }
+  
+}
+
+
+def valueA() {
+    
+    stage('Deploy Version') {
+        timeout(time: 10, unit: 'MINUTES') {
+            deployVersion = input(message: '', ok: 'OK', parameters: [
+                [$class: 'TextParameterDefinition', description: 'Enter value for A', name: 'Enter value for A']
+            ])
+        }
     }
-  }
+    deployVersion
+}
+
+
+
+def valueB() {
+    
+    stage('Deploy Version') {
+        timeout(time: 10, unit: 'MINUTES') {
+            deployVersion = input(message: '', ok: 'OK', parameters: [
+                [$class: 'TextParameterDefinition', description: 'Enter value for B', name: 'Enter value for B']
+            ])
+        }
+    }
+    deployVersion
 }
