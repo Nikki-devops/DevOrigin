@@ -22,7 +22,7 @@ node('master') {
 
 def valueA() {
     
-    stage('Deploy Version') {
+    stage('Input Value A') {
         timeout(time: 10, unit: 'MINUTES') {
             deployVersion = input(message: '', ok: 'OK', parameters: [
                 [$class: 'TextParameterDefinition', description: 'Enter value for A', name: 'Enter value for A']
@@ -36,7 +36,7 @@ def valueA() {
 
 def valueB() {
     
-    stage('Deploy Version') {
+    stage('Input Value B') {
         timeout(time: 10, unit: 'MINUTES') {
             deployVersion = input(message: '', ok: 'OK', parameters: [
                 [$class: 'TextParameterDefinition', description: 'Enter value for B', name: 'Enter value for B']
