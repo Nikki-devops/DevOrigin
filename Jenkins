@@ -14,7 +14,11 @@ node('master') {
  stage('Global'){
            echo inputA
            echo inputB
+<<<<<<< HEAD
      bash t2.sh inputA inputB
+=======
+     sh 'bash t2.sh $inputA  $inputB'
+>>>>>>> 1797fd8f15b6ba726a274ee175e59d3155915ca4
  }
   
 }
@@ -22,7 +26,11 @@ node('master') {
 
 def valueA() {
     
+<<<<<<< HEAD
     stage('Deploy Version') {
+=======
+    stage('Input Value A') {
+>>>>>>> 1797fd8f15b6ba726a274ee175e59d3155915ca4
         timeout(time: 10, unit: 'MINUTES') {
             deployVersion = input(message: '', ok: 'OK', parameters: [
                 [$class: 'TextParameterDefinition', description: 'Enter value for A', name: 'Enter value for A']
@@ -36,7 +44,11 @@ def valueA() {
 
 def valueB() {
     
+<<<<<<< HEAD
     stage('Deploy Version') {
+=======
+    stage('Input Value B') {
+>>>>>>> 1797fd8f15b6ba726a274ee175e59d3155915ca4
         timeout(time: 10, unit: 'MINUTES') {
             deployVersion = input(message: '', ok: 'OK', parameters: [
                 [$class: 'TextParameterDefinition', description: 'Enter value for B', name: 'Enter value for B']
